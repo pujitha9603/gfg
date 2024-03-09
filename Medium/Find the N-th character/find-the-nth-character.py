@@ -3,23 +3,7 @@
 class Solution:
     def nthCharacter(self, s, r, n):
         # code here
-        # ans = ""
-        # if r % 2 == 0:
-        #     for i in s:
-        #         if i == "1":
-        #             ans += "1" + "0" * r + "1"
-        #         else:
-        #             ans += "0" + "1" * r + "0"
-        #     return ans[n]
-        # else:
-        #     for i in s:
-        #         if i == "1":
-        #             ans += "1" + "0" * r
-        #         else:
-        #             ans += "0" + "1" * r
-        #     return ans[n]
-            
-        def fun(s,c,r):
+        def find(s,c,r):
             if c >= r:
                 return s
             t = ""
@@ -29,12 +13,12 @@ class Solution:
                 else:
                     t += "10"
             c += 1
-            return fun(t,c,r)   
+            return find(t,c,r)   
         c = 0
         on = "1"
         tw = "0"
-        ones  = fun(on,c,r)
-        twos = fun(tw,c,r)
+        ones  = find(on,c,r)
+        twos = find(tw,c,r)
         t = ""
         for i in s:
             if i == "1":
@@ -44,6 +28,7 @@ class Solution:
             if len(t)>n:
                 return t[n]
         return t[n]
+
 
 #{ 
  # Driver Code Starts
